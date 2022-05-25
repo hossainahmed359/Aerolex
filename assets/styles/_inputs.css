@@ -1,0 +1,408 @@
+/*==================== GOOGLE FONTS ====================*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+
+/*====================== VARIABLES =====================*/
+:root {
+    --header-height: 3rem;
+
+    /*========== Colors ==========*/
+    --body-color-light: #FFFFFF;
+    --body-color-secondary: #FAFAFB;
+    --content-color-primary: #EF4023;
+    --content-color-secondary: #92929D;
+    --content-color-info: #0060B9;
+    --content-color-dark: #171725;
+    --content-color-light-dark: #44444F;
+    --content-color-light: #FFFFFF;
+    --content-color-success: #50B5FF;
+    --content-color-positive: #3DD598;
+    --content-color-muted: #D5D5DC;
+    --content-color-muted-two: #a6a6a6;
+
+    /*========== Font and typography ==========*/
+    --body-font-poppins: 'Poppins', sans-serif;
+    --body-font-roboto: 'Roboto', sans-serif;
+
+    /*========== Font size ==========*/
+    --big-font-size: 56px;
+    --h1-font-size: 28px;
+    --h2-font-size: 24px;
+    --h3-font-size: 18px;
+    --normal-font-size-lg: 16px;
+    --normal-font-size: 14px;
+    --smaller-font-size: 12px;
+
+    /*========== Font weight ==========*/
+    --font-extra-bold: 700;
+    --font-bold: 600;
+    --font-semi-bold: 500;
+    --font-medium: 400;
+    --font-light: 300;
+
+    /*========== Margenes ==========*/
+    --m-60: 60px;
+    --m-50: 50px;
+    --m-40: 40px;
+    --m-30: 30px;
+    --m-20: 20px;
+    --m-15: 15px;
+    --m-10: 10px;
+    --m-5: 5px;
+
+    /*========== Paddings ==========*/
+    --p-15: 15px;
+    --p-17: 17.5px;
+
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+/*====================== BODY =====================*/
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--body-font-roboto);
+}
+
+.contents>.top-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: var(--body-font-poppins);
+}
+
+.contents>.top-title>span {
+    color: var(--content-color-primary);
+}
+
+.title {
+    text-transform: uppercase;
+    font-family: var(--body-font-poppins);
+    font-weight: var(--font-extra-bold);
+    font-size: var(--h3-font-size);
+    color: var(--content-color-dark);
+}
+
+/*====================== INPUT FIELDS =====================*/
+/* OVERWRITE DEFAULT */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--body-color-secondary) inset !important;
+}
+
+/* CUSTOM */
+.fields {
+    margin: auto;
+    width: 1170px;
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--body-color-secondary);
+    border-radius: 50px;
+    padding: 25px;
+}
+
+.standard,
+.outlined,
+.plain {
+    width: 30%;
+    margin: 0 20px;
+}
+
+/*====================== STANDARD =====================*/
+.txt_field_standard {
+    position: relative;
+    border-bottom: 1px solid var(--content-color-muted-two);
+    margin: var(--m-30) 0;
+}
+
+.txt_field_standard input {
+    width: 100%;
+    padding: 0;
+    height: 40px;
+    font-size: var(--normal-font-size-lg);
+    color: var(--content-color-light-dark);
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txt_field_standard label {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    color: var(--content-color-muted);
+    font-size: var(--normal-font-size);
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.txt_field_standard .append {
+    position: absolute;
+    top: 8px;
+    color: var(--content-color-muted);
+    font-size: var(--h2-font-size);
+    right: 0;
+    z-index: 9;
+}
+
+.txt_field_standard .border-span::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0%;
+    width: 0%;
+    height: 2px;
+    background-color: var(--content-color-success);
+    transition: 0.5s;
+}
+
+.txt_field_standard input:focus~label,
+.txt_field_standard input:valid~label {
+    top: -10px;
+    font-size: var(--smaller-font-size);
+    color: var(--content-color-success);
+}
+
+.txt_field_standard input:focus~.border-span::before,
+.txt_field_standard input:valid~.border-span::before {
+    width: 100%;
+    color: var(--content-color-success);
+    z-index: 10;
+}
+
+.check-box {
+    display: flex;
+    align-items: center;
+    font-size: var(--normal-font-size);
+}
+
+.check-box>input {
+    height: 16px;
+    width: 16px;
+    margin-right: 7px;
+    line-height: 5px;
+    border-radius: 5px;
+}
+
+.check-box input:focus~input[type="checkbox"],
+.check-box input:checked~input[type="checkbox"] {
+    background-color: var(--content-color-positive) !important;
+}
+
+.check-box>label {
+    color: var(--content-color-muted-two);
+}
+
+.checkbox-pass {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: var(--m-30) 0;
+}
+
+.pass {
+    font-size: var(--normal-font-size);
+    color: var(--content-color-success);
+    cursor: pointer;
+}
+
+.pass:hover {
+    text-decoration: underline;
+}
+
+.signup_link {
+    margin: 30px 0;
+    text-align: center;
+    font-size: var(--normal-font-size-lg);
+    color: var(--content-color-secondary);
+}
+
+.signup_link a {
+    color: var(--content-color-success);
+    text-decoration: none;
+}
+
+.signup_link a:hover {
+    text-decoration: underline;
+}
+
+/*====================== OUTLINED =====================*/
+.txt_field_outlined {
+    position: relative;
+    border: 1px solid var(--content-color-muted-two);
+    border-radius: 10px;
+    margin: var(--m-30) 0;
+    transition: 0.5s;
+}
+
+.txt_field_outlined input,
+textarea {
+    position: relative;
+    z-index: 8;
+    width: 90%;
+    border-radius: 10px;
+    padding: 15px 17px;
+    font-size: var(--normal-font-size-lg);
+    color: var(--content-color-light-dark);
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txt_field_outlined .append {
+    position: absolute;
+    top: 10px;
+    color: var(--content-color-muted);
+    font-size: var(--h3-font-size);
+    right: 10px;
+    z-index: 9;
+}
+
+.txt_field_outlined label {
+    position: absolute;
+    top: 50%;
+    left: 4%;
+    color: var(--content-color-muted);
+    font-size: var(--normal-font-size);
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.txt_field_outlined input:focus~label,
+.txt_field_outlined input:valid~label {
+    top: -1px;
+    font-size: var(--smaller-font-size);
+    color: var(--content-color-success);
+    background-color: var(--body-color-secondary);
+    padding: 0 5px;
+    z-index: 99999;
+}
+
+.txt_field_outlined textarea:focus~label,
+.txt_field_outlined textarea:valid~label {
+    top: -1px;
+    font-size: var(--smaller-font-size);
+    color: var(--content-color-success);
+    background-color: var(--body-color-secondary);
+    padding: 0 5px;
+    z-index: 99999;
+}
+
+.txt_field_outlined input:focus~.txt_field_outlined,
+.txt_field_outlined input:valid~.txt_field_outlined {
+    background-color: var(--content-color-success);
+}
+
+.txt_field_outlined textarea:focus~.txt_field_outlined,
+.txt_field_outlined textarea:valid~.txt_field_outlined {
+    background-color: var(--content-color-success);
+}
+
+.txt_field_outlined .border-span {
+    position: absolute;
+    border: none;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+.txt_field_outlined input:focus~.border-span,
+.txt_field_outlined input:valid~.border-span {
+    border: 1px solid var(--content-color-success);
+    z-index: 10;
+}
+
+.txt_field_outlined input:focus~.txt_field_outlined,
+.txt_field_outlined input:valid~.txt_field_outlined {
+    border: 1px solid var(--content-color-success);
+}
+
+/*====================== PLAIN =====================*/
+.txt_field_plain {
+    margin: var(--m-30) 0;
+}
+
+.txt_field_plain label, textarea {
+    display: inline-block;
+    margin-bottom: var(--m-15);
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    color: var(--content-color-light-dark);
+}
+
+.input-section {
+    position: relative;
+    border: 1px solid var(--content-color-muted-two);
+    border-radius: 10px;
+    transition: 0.5s;
+    /* overflow: hidden; */
+}
+
+.input-section input,
+textarea {
+    position: relative;
+    z-index: 12;
+    width: 90%;
+    border-radius: 10px;
+    padding: 15px 17px;
+    font-size: var(--normal-font-size-lg);
+    color: var(--content-color-light-dark);
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.input-section .border-span {
+    position: absolute;
+    border: none;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+
+.input-section input:focus~.border-span,
+.input-section input:valid~.border-span {
+    border: 1px solid var(--content-color-success);
+    z-index: 10;
+}
+
+.input-section .append {
+    position: absolute;
+    top: 10px;
+    color: var(--content-color-muted);
+    font-size: var(--h3-font-size);
+    right: 10px;
+    z-index: 9;
+}
+
+.input-section .prepend {
+    position: absolute;
+    left: 10px;
+    margin: 0 5px;
+    top: 10px;
+    color: var(--content-color-muted);
+    font-size: var(--h3-font-size);
+    z-index: 13;
+}
+
+.prepend-field input {
+    left: 25px;
+    width: 80%;
+}
