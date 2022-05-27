@@ -158,7 +158,7 @@ input:-webkit-autofill:active {
     top: 40px;
     left: 0%;
     width: 0%;
-    height: 2px;
+    height: 1px;
     background-color: var(--content-color-success);
     transition: 0.5s;
 }
@@ -296,14 +296,15 @@ textarea {
     z-index: 99999;
 }
 
-.txt_field_outlined input:focus~.txt_field_outlined,
+/* .txt_field_outlined input:focus~.txt_field_outlined,
 .txt_field_outlined input:valid~.txt_field_outlined {
     background-color: var(--content-color-success);
-}
+} */
 
 .txt_field_outlined textarea:focus~.txt_field_outlined,
 .txt_field_outlined textarea:valid~.txt_field_outlined {
     background-color: var(--content-color-success);
+    opacity: 0;
 }
 
 .txt_field_outlined .border-span {
@@ -321,7 +322,9 @@ textarea {
 .txt_field_outlined input:focus~.border-span,
 .txt_field_outlined input:valid~.border-span {
     border: 1px solid var(--content-color-success);
-    z-index: 10;
+    left: -1px;
+    top: -1px;
+    /* z-index: 10; */
 }
 
 .txt_field_outlined input:focus~.txt_field_outlined,
@@ -380,7 +383,9 @@ textarea {
 .input-section input:focus~.border-span,
 .input-section input:valid~.border-span {
     border: 1px solid var(--content-color-success);
-    z-index: 10;
+    left: -1px;
+    top: -1px;
+    /* z-index: 10; */
 }
 
 .input-section .append {
